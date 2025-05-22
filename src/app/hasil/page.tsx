@@ -1,11 +1,10 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { siswaLulus } from '../data/siswa';
-
-function normal(str: string) {
-    return str.trim().toLowerCase();
-}
+import { siswaLulus } from '@/data/siswa';
+import { normalize } from '@/utils/normalizer';
+import Link from 'next/link';
+import { useMemo } from 'react';
 
 export default function Hasil() {
     const searchParams = useSearchParams();
@@ -14,12 +13,25 @@ export default function Hasil() {
     const nisn = searchParams.get('nisn') || '';
     const tanggalLahir = searchParams.get('tanggalLahir') || '';
 
-    const siswa = siswaLulus.find(
-        (s) =>
-            normal(s.nama) === normal(nama) &&
-            s.nisn === nisn &&
-            s.tanggalLahir === tanggalLahir
-    );
+    const siswa = useMemo(() => {
+        return siswaLulus.find(
+            (s) =>
+                normalize(s.nama) === normalize(nama) &&
+                s.nisn === nisn &&
+                s.tanggalLahir === tanggalLahir
+        );
+    }, [nama, nisn, tanggalLahir]);
+
+    if (!nama || !nisn || !tanggalLahir) {
+        return (
+            <main className="min-h-screen flex items-center justify-center p-6">
+                <div className="text-center">
+                    <p className="text-red-600 font-semibold">Parameter tidak lengkap.</p>
+                    <Link href="/" className="text-blue-600 underline mt-4 block">Kembali ke Beranda</Link>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen bg-white flex items-center justify-center p-6">
@@ -36,6 +48,7 @@ export default function Hasil() {
                         <p className="text-red-700 mt-2">Periksa Nama, NISN, dan Tanggal Lahir</p>
                     </div>
                 )}
+                <Link href="/" className="text-blue-600 underline block">Cek Lagi</Link>
             </div>
         </main>
     );

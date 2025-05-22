@@ -1,7 +1,7 @@
 export const siswaLulus = [
     { nama: "AUREL ANJANI SAPUTRI", nisn: "0103148139", tanggalLahir: "2010-02-03" },
     { nama: "DANIL NITRIAN SAPUTRA", nisn: "0107888128", tanggalLahir: "2010-07-17" },
-    { nama: "Elsi Maharani", nisn: "0082349264", tanggalLahir: "2008-10-06" },
+    { nama: "ELSI MAHARANI", nisn: "0082349264", tanggalLahir: "2008-10-06" },
     { nama: "ERIK ZAHWA", nisn: "0096736801", tanggalLahir: "2009-01-01" },
     { nama: "GELBIN FABIOLA", nisn: "0096091243", tanggalLahir: "2009-08-24" },
     { nama: "GIA APRILIANI", nisn: "0107263701", tanggalLahir: "2010-04-24" },

@@ -1,37 +1,34 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function FormCek() {
-    const [nama, setNama] = useState('')
-    const [nisn, setNisn] = useState('')
-    const [tanggalLahir, setTanggalLahir] = useState('')
-    const router = useRouter()
+    const [nama, setNama] = useState('');
+    const [nisn, setNisn] = useState('');
+    const [tanggalLahir, setTanggalLahir] = useState('');
+    const router = useRouter();
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        // Validasi minimal NISN adalah angka 10 digit
-        const nisnValid = /^\d{10}$/.test(nisn)
-        if (!nisnValid) {
-            alert('NISN harus terdiri dari 10 digit angka.')
-            return
+        if (!nama || !nisn || !tanggalLahir) {
+            alert('Harap lengkapi semua field.');
+            return;
         }
 
-        if (!nama || !tanggalLahir) {
-            alert('Harap lengkapi semua field.')
-            return
+        if (!/^\d{10}$/.test(nisn)) {
+            alert('NISN harus terdiri dari 10 digit angka.');
+            return;
         }
 
-        // Arahkan ke halaman hasil
         router.push(
             `/hasil?nama=${encodeURIComponent(nama)}&nisn=${encodeURIComponent(nisn)}&tanggalLahir=${encodeURIComponent(tanggalLahir)}`
-        )
-    }
+        );
+    };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto mt-10">
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto mt-10 w-full">
             <input
                 type="text"
                 placeholder="Masukkan Nama"
@@ -56,6 +53,7 @@ export default function FormCek() {
                 onChange={(e) => setTanggalLahir(e.target.value)}
                 className="w-full p-3 border rounded"
                 required
+                max={new Date().toISOString().split('T')[0]} // prevent future date
             />
             <button
                 type="submit"
@@ -64,5 +62,5 @@ export default function FormCek() {
                 Cek Kelulusan
             </button>
         </form>
-    )
+    );
 }
