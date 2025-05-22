@@ -28,13 +28,16 @@ export default function FormCek() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto mt-10 w-full">
+        <form
+            onSubmit={handleSubmit}
+            className="space-y-4 w-full max-w-md mx-auto px-4 sm:px-0"
+        >
             <input
                 type="text"
                 placeholder="Masukkan Nama"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
-                className="w-full p-3 border rounded"
+                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
                 required
             />
             <input
@@ -42,7 +45,7 @@ export default function FormCek() {
                 placeholder="Masukkan NISN (10 digit)"
                 value={nisn}
                 onChange={(e) => setNisn(e.target.value)}
-                className="w-full p-3 border rounded"
+                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
                 pattern="\d{10}"
                 title="NISN harus 10 digit angka"
                 required
@@ -51,13 +54,12 @@ export default function FormCek() {
                 type="date"
                 value={tanggalLahir}
                 onChange={(e) => setTanggalLahir(e.target.value)}
-                className="w-full p-3 border rounded"
+                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
                 required
-                max={new Date().toISOString().split('T')[0]} // prevent future date
             />
             <button
                 type="submit"
-                className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition"
+                className="w-full bg-blue-600 text-white p-3 rounded text-sm sm:text-base hover:bg-blue-700 transition"
             >
                 Cek Kelulusan
             </button>
