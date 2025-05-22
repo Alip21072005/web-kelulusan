@@ -30,22 +30,22 @@ export default function FormCek() {
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-4 w-full max-w-md mx-auto px-4 sm:px-0"
+            className="space-y-4 w-full text-left"
         >
             <input
                 type="text"
-                placeholder="Masukkan Nama"
+                placeholder="Nama Lengkap"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
                 required
             />
             <input
                 type="text"
-                placeholder="Masukkan NISN (10 digit)"
+                placeholder="NISN (10 digit)"
                 value={nisn}
                 onChange={(e) => setNisn(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
                 pattern="\d{10}"
                 title="NISN harus 10 digit angka"
                 required
@@ -54,12 +54,12 @@ export default function FormCek() {
                 type="date"
                 value={tanggalLahir}
                 onChange={(e) => setTanggalLahir(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded text-sm sm:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
                 required
             />
             <button
                 type="submit"
-                className="w-full bg-blue-600 text-white p-3 rounded text-sm sm:text-base hover:bg-blue-700 transition"
+                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md font-semibold"
             >
                 Cek Kelulusan
             </button>
