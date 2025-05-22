@@ -32,6 +32,7 @@ export default function FormCek() {
             onSubmit={handleSubmit}
             className="space-y-4 w-full text-left"
         >
+            <label className="text-sm font-semibold text-gray-700">Nama Lengkap</label>
             <input
                 type="text"
                 placeholder="Nama Lengkap"
@@ -40,6 +41,7 @@ export default function FormCek() {
                 className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
                 required
             />
+            <label className="text-sm font-semibold text-gray-700">NISN</label>
             <input
                 type="text"
                 placeholder="NISN (10 digit)"
@@ -50,6 +52,7 @@ export default function FormCek() {
                 title="NISN harus 10 digit angka"
                 required
             />
+            <label className="text-sm font-semibold text-gray-700">Tanggal Lahir</label>
             <input
                 type="date"
                 value={tanggalLahir}
