@@ -30,36 +30,49 @@ export default function FormCek() {
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-4 w-full text-left"
+            className="space-y-5 w-full text-left animate-fade-in"
         >
-            <label className="text-sm font-semibold text-gray-700">Nama Lengkap</label>
-            <input
-                type="text"
-                placeholder="Nama Lengkap"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
-                required
-            />
-            <label className="text-sm font-semibold text-gray-700">NISN</label>
-            <input
-                type="text"
-                placeholder="NISN (10 digit)"
-                value={nisn}
-                onChange={(e) => setNisn(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
-                pattern="\d{10}"
-                title="NISN harus 10 digit angka"
-                required
-            />
-            <label className="text-sm font-semibold text-gray-700">Tanggal Lahir</label>
-            <input
-                type="date"
-                value={tanggalLahir}
-                onChange={(e) => setTanggalLahir(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
-                required
-            />
+            {/* Nama */}
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Nama Lengkap</label>
+                <input
+                    type="text"
+                    placeholder="Nama Lengkap"
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    required
+                />
+            </div>
+
+            {/* NISN */}
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">NISN</label>
+                <input
+                    type="text"
+                    placeholder="NISN (10 digit)"
+                    value={nisn}
+                    onChange={(e) => setNisn(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    pattern="\d{10}"
+                    title="NISN harus 10 digit angka"
+                    required
+                />
+            </div>
+
+            {/* Tanggal Lahir */}
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Tanggal Lahir</label>
+                <input
+                    type="date"
+                    value={tanggalLahir}
+                    onChange={(e) => setTanggalLahir(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    required
+                />
+            </div>
+
+            {/* Tombol */}
             <button
                 type="submit"
                 className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md font-semibold"
