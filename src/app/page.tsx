@@ -83,7 +83,7 @@ export default function Home() {
         ) : (
           <>
             <p className="text-gray-600 text-sm sm:text-base">
-              Formulir akan tersedia dalam:
+              Pengumuman akan tersedia dalam:
             </p>
             <div className="flex justify-center gap-2 sm:gap-4 flex-wrap mt-2">
               {timeParts.map(({ label, value }) => (
