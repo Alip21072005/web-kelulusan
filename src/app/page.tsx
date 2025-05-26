@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex items-center justify-center p-4">
       <div
-        className={`w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-10 text-center space-y-6 transform transition duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        className={`w-full max-w-xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 text-center space-y-6 transform transition duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
       >
         {/* Logo Sekolah */}
